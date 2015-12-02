@@ -6,6 +6,18 @@ window.NWNMapp.controller('NWNMpiramideTopControll', function ($scope) {
     $scope.MenusAjudaEscritura = [];
     $scope.AjudaEscritura = [];
     $scope.AjudaAtualEscritura = '';
+    $scope.NWNMpiramideTop.canvasLogoPriramide = function () {
+        var canvas = document.getElementById("canvasLogoPriramide");
+        var ctx = canvas.getContext("2d");
+        ctx.lineStyle="black";
+        ctx.moveTo(0,200);
+        ctx.lineTo(100,0);
+        ctx.moveTo(200,200);
+        ctx.lineTo(100,0);
+        ctx.moveTo(0,200);
+        ctx.lineTo(200,200);
+        ctx.stroke();
+    };
     $scope.AtualizaMenuEscritura = function (Menu) {
         $scope.AjudaAtualEscritura = Menu.Url;
     };
