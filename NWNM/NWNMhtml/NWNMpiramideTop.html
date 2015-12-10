@@ -1,28 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="prt" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Público"/>
     <meta name="author" content="Maurício Urubatan da Silva Pacheco"/>
-    <title>Xenon - Blank Page - Horizontal Menu</title>
-    <script src="../angular/angular-1.4.8/angular.min.js"></script>
+    <title>Novo Mundo!!!New Word</title>
+    <link rel="stylesheet" href="../CSS/xenon-files/html/assets/css/fonts/linecons/css/linecons.css">
+    <link rel="stylesheet" href="../CSS/xenon-files/html/assets/css/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../CSS/xenon-files/html/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../CSS/xenon-files/html/assets/css/xenon-core.css">
+    <link rel="stylesheet" href="../CSS/xenon-files/html/assets/css/xenon-forms.css">
+    <link rel="stylesheet" href="../CSS/xenon-files/html/assets/css/xenon-components.css">
+    <link rel="stylesheet" href="../CSS/xenon-files/html/assets/css/xenon-skins.css">
+    <link rel="stylesheet" href="../CSS/xenon-files/html/assets/css/custom.css">
+    <script src="../CSS/xenon-files/angular/assets/js/jquery-1.11.3.js"></script>
+    <script src="../CSS/xenon-files/html/assets/js/bootstrap.min.js"></script>
+    <script src="../angular/angular-1.4.8/angular.js"></script>
+    <script src="../angular/angular-1.4.8/angular-route.min.js"></script>
+    <script src="../angular/angular-ui/angular-ui-router.min.js"></script>
+    <script src="../angular/angular-1.4.8/angular-cookies.min.js"></script>
+
     <script type="text/javascript">
-        window.NWNMapp = angular.module('NWNMapp', []);
+        window.NWNMapp = angular.module('NWNMapp', ['ui.router', 'ngCookies', 'FBAngular']);
+        var appHelper = {
+		// Vars (paths without trailing slash)
+		templatesDir: '../CSS/xenon-files/angular/app/tpls',
+		assetsDir: 'assets',
+
+		// Methods
+		templatePath: function(view_name)
+		{
+			return this.templatesDir + '/' + view_name + '.html';
+		},
+
+		assetPath: function(file_path)
+		{
+			return this.assetsDir + '/' + file_path;
+		}
+	};
+
     </script>
     <script src="../NWNMjs/NWNMpiramideTopControll.sj"></script>
-    <script src="../CSS/xenon-files/html/assets/js/bootstrap.min.js"></script>
+    <script src="../CSS/xenon-files/angular/app/js/controllers.js"></script>
+    <script src="../CSS/xenon-files/angular/app/js/directives.js"></script>
+    <script src="../CSS/xenon-files/angular/app/js/services.js"></script>
+    <script src="../CSS/xenon-files/angular/app/js/xenon-custom.js"></script>
+    <script src="../CSS/xenon-files/angular/app/js/factory.js"></script>
+    <script src="../CSS/xenon-files/angular/app/js/angular-fullscreen.js"></script>
 </head>
-<body ng-app="NWNMapp" class="page-body">
-<div ng-controller="NWNMpiramideTopControll">
-   <section></section>
-    <
-</div>
-<!-- Imported styles on this page -->
+<body ng-app="NWNMapp" class="page-body"
+      ng-class="{'settings-pane-open': layoutOptions.settingsPane.isOpen, 'chat-open': layoutOptions.chat.isOpen, 'login-page': isLoginPage && isMainPage == false, 'login-light': isLightLoginPage && isMainPage == false, 'lockscreen-page': isLockscreenPage && isMainPage == false, 'right-sidebar': layoutOptions.sidebar.isRight, 'boxed-container': layoutOptions.container.isBoxed}">
+<div ng-controller="NWNMpiramideTopControll" class="main-content">
+    <settings-pane></settings-pane>
+    <horizontal-menu></horizontal-menu>
+    <div class="page-container" ng-include=""></div>
+    <div class="page-loading-overlay">
+        <div class="loader-2"></div>
+        <script>
+                public_vars.$pageLoadingOverlay = jQuery('.page-loading-overlay');
+                jQuery(window).load(function()
+                {
+                    public_vars.$pageLoadingOverlay.addClass('loaded');
+                })
 
-<!-- JavaScripts initializations and stuff -->
-<script src="../CSS/xenon-files/html/assets/js/xenon-custom.js"></script>
+        </script>
+    </div>
 </div>
 </body>
 </html>
