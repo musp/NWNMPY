@@ -1,5 +1,2 @@
 # NWNMPY
-agora vai
-
-
-asdfrqawerfqwer
+PROJETO PARA GERAÇÃO DE IMAGEM COM PYTHON, HTML, ANGULAR, SÓ INICIADO 
